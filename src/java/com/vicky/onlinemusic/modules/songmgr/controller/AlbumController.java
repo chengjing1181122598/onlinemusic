@@ -74,7 +74,7 @@ public class AlbumController extends MyEntityController<Album, String> {
             t.setCoverRelativePath(Final.HOST_ADDRESS+strings[1]);
         }
         t.setCreateTime(new Date());
-        if (t.getSingerId() != null) {
+        if (t.getAlbumId()!= null) {
             this.albumService.updateSelective(t);
         } else {
             this.albumService.save(t);
