@@ -14,7 +14,7 @@ Date: 2017-03-11 10:30:07
 */
 
 /*==============================================================*/
-/* ´´½¨Êý¾Ý¿â                                       */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½                                       */
 /*==============================================================*/
 DROP DATABASE IF EXISTS onlinemusic;
 CREATE DATABASE onlinemusic;
@@ -34,6 +34,7 @@ CREATE TABLE `album` (
   `cover_absolute_path` varchar(255) NOT NULL,
   `singer_id` varchar(255) NOT NULL,
   `create_time` datetime NOT NULL,
+  `publish_date` date NOT NULL,
   PRIMARY KEY (`album_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -103,6 +104,7 @@ CREATE TABLE `song` (
   `album_id` varchar(255) DEFAULT NULL,
   `audio_relative_path` varchar(255) NOT NULL,
   `audio_absolute_path` varchar(255) NOT NULL,
+  `album_no` int,
   PRIMARY KEY (`song_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

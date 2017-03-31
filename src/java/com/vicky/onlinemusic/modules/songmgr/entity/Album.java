@@ -40,6 +40,9 @@ public class Album implements Serializable {
     @Column(name = "create_time")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date createTime;
+    @Column(name = "publish_date")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date publishDate;
 
     /**
      * @return the albumId
@@ -137,5 +140,19 @@ public class Album implements Serializable {
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    /**
+     * @return the publishDate
+     */
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    /**
+     * @param publishDate the publishDate to set
+     */
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
     }
 }

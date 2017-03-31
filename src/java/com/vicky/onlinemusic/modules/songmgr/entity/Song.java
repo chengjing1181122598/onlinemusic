@@ -42,6 +42,8 @@ public class Song implements Serializable {
     private String audioRelativePath;
     @Column(name = "audio_absolute_path")
     private String audioAbsolutePath;
+    @Column(name = "album_no")
+    private Integer albumNo;
 
     /**
      * @return the songId
@@ -153,5 +155,19 @@ public class Song implements Serializable {
      */
     public void setAudioAbsolutePath(String audioAbsolutePath) {
         this.audioAbsolutePath = audioAbsolutePath;
+    }
+
+    /**
+     * @return the albumNo
+     */
+    public Integer getAlbumNo() {
+        return albumNo;
+    }
+
+    /**
+     * @param albumNo the albumNo to set
+     */
+    public void setAlbumNo(Integer albumNo) {
+        this.albumNo = albumNo;
     }
 }

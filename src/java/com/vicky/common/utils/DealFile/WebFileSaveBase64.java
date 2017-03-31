@@ -9,9 +9,9 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.misc.BASE64Decoder;
 
 /**
  * 线程保存文件
@@ -47,10 +47,10 @@ public class WebFileSaveBase64 implements Runnable {
                 targetFile.getParentFile().mkdirs();
                 targetFile.createNewFile();
             }
+
             //以流的方式写入文件
-            this.base64Str = this.base64Str.replace("data:image/jpeg;base64,", "");
-            BASE64Decoder decoder = new BASE64Decoder();
-            byte[] bs = decoder.decodeBuffer(this.base64Str);
+            this.base64Str = this.base64Str.replace("data:^;*;base64,", "");
+            byte[] bs = Base64.getDecoder().decode(this.base64Str);
             for (int i = 0; i < bs.length; ++i) {
                 if (bs[i] < 0) {//调整异常数据  
                     bs[i] += 256;
