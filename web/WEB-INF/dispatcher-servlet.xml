@@ -54,9 +54,8 @@
             <mvc:mapping path="/album/saveOrUpdate"/>
             <mvc:mapping path="/album/deleteById"/>
             
-            <mvc:mapping path="/song/save"/>
+            <mvc:mapping path="/song/saveOrUpdate"/>
             <mvc:mapping path="/song/deleteById"/>
-            <mvc:mapping path="/song/updateById"/>
             
             <bean class="com.vicky.onlinemusic.modules.songmgr.interceptor.ManagerInterceptor" />
         </mvc:interceptor>
