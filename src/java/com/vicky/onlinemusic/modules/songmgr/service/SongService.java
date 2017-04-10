@@ -27,4 +27,8 @@ public class SongService extends MybatisBaseService<Song, String> {
         return this.songMapper;
     }
 
+    public int increment(Song song) {
+        return this.songMapper.increment(song);
+    }
+
 }

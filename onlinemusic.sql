@@ -105,6 +105,8 @@ CREATE TABLE `song` (
   `audio_relative_path` varchar(255) NOT NULL,
   `audio_absolute_path` varchar(255) NOT NULL,
   `album_no` int,
+  `play_count` bigint NOT NULL,
+  `version` bigint NOT NULL,
   PRIMARY KEY (`song_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

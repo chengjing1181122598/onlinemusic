@@ -6,6 +6,7 @@
 package com.vicky.onlinemusic.modules.songmgr.mapper;
 
 import com.vicky.onlinemusic.modules.songmgr.entity.Song;
+import org.apache.ibatis.annotations.Update;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
@@ -14,4 +15,6 @@ import tk.mybatis.mapper.common.Mapper;
  */
 public interface SongMapper extends Mapper<Song> {
 
+    @Update("update song set play_count = #{playCount} , version = version + 1 where song_id = #{songId} and version = #{version}")
+    public int increment(Song song);
 }

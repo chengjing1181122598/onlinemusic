@@ -44,6 +44,10 @@ public class Song implements Serializable {
     private String audioAbsolutePath;
     @Column(name = "album_no")
     private Integer albumNo;
+    @Column(name = "play_count")
+    private Long playCount;
+    @Column(name = "version")
+    private Long version;
 
     /**
      * @return the songId
@@ -170,4 +174,33 @@ public class Song implements Serializable {
     public void setAlbumNo(Integer albumNo) {
         this.albumNo = albumNo;
     }
+
+    /**
+     * @return the playCount
+     */
+    public Long getPlayCount() {
+        return playCount;
+    }
+
+    /**
+     * @param playCount the playCount to set
+     */
+    public void setPlayCount(Long playCount) {
+        this.playCount = playCount;
+    }
+
+    /**
+     * @return the version
+     */
+    public Long getVersion() {
+        return version;
+    }
+
+    /**
+     * @param version the version to set
+     */
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
 }

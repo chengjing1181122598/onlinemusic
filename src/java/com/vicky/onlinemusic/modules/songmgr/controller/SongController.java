@@ -46,6 +46,20 @@ public class SongController extends MyEntityController<Song, String> {
         return super.getPageData(request, response); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @RequestMapping("increment")
+    @ResponseBody
+    public StatusMsg increment(String songId) {
+        Song song = this.songService.selectByPrimaryKey(songId);
+        song.setPlayCount(song.getPlayCount() + 1);
+        boolean loop = true;
+        while (loop) {
+            if (this.songService.increment(song) > 0) {
+                loop = false;
+            }
+        }
+        return super.simpleBuildSuccessMsg("播放数+1成功", song);
+    }
+
     @RequestMapping("saveOrUpdate")
     @ResponseBody
     public StatusMsg saveOrUpdate(Song t) throws Exception {
@@ -61,6 +75,8 @@ public class SongController extends MyEntityController<Song, String> {
         if (t.getSongId() != null) {
             this.songService.updateSelective(t);
         } else {
+            t.setPlayCount(new Long(1));
+            t.setVersion(new Long(1));
             this.songService.save(t);
         }
         return super.simpleBuildSuccessMsg("保存歌曲成功!", t);
